@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/txtTituloMaterias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escolha a Disciplina"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- CONTAINER ANO 1 -->
+        <LinearLayout
+            android:id="@+id/containerAno1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnLLP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="LLP (Lógica e Linguagem de Prog.)" />
+
+            <Button
+                android:id="@+id/btnPDSMA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="PDSMA (Proc. Dev. Software e Met. Ágeis)" />
+
+            <Button
+                android:id="@+id/btnRCSIN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="RCSIN (Redes e Segurança em Nuvem)" />
+
+            <Button
+                android:id="@+id/btnCarreiras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Carreiras e Competências" />
+        </LinearLayout>
+
+        <!-- CONTAINER ANO 2 -->
+        <LinearLayout
+            android:id="@+id/containerAno2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnMBD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MBD (Modelagem e Dev. Banco de Dados)"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnPM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PM (Programação Mobile)"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnFront"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Front-End (Programação Frontend)"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back-End (Programação Backend)"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnVCSM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VCSM (Vers. Código e Sist. Mensageria)"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnIA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IA (Inteligência Artificial)"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnPMD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PMD (Projeto Multidisciplinar)"
+                android:layout_marginBottom="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
