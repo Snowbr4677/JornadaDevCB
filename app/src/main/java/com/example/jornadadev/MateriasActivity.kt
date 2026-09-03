@@ -48,11 +48,9 @@ class MateriasActivity : AppCompatActivity() {
     }
 
     private fun abrirDificuldade(ano: Int, materia: String) {
-        Toast.makeText(this, "Selecionado: $materia (Ano $ano)", Toast.LENGTH_SHORT).show()
-        // Próximo passo quando criarmos a DificuldadeActivity:
-        // val intent = Intent(this, DificuldadeActivity::class.java)
-        // intent.putExtra("EXTRA_ANO", ano)
-        // intent.putExtra("EXTRA_MATERIA", materia)
-        // startActivity(intent)
+        val intent = Intent(this, QuizActivity::class.java)
+        intent.putExtra("EXTRA_ANO", ano)
+        intent.putExtra("EXTRA_MATERIA", materia)
+        startActivity(intent)
     }
 }
