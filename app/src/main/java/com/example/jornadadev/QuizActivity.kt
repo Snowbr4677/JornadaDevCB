@@ -8,132 +8,92 @@ import androidx.appcompat.app.AppCompatActivity
 
 class QuizActivity : AppCompatActivity() {
 
-    // Banco de Perguntas Integrado
-    // Banco de Perguntas Integrado (Ajustado para a grade correta)
-    private val listaPerguntas = listOf(
-        // ANO 1 - Lógica e Linguagem de Programação (Algoritmos e Lógica)
-        Pergunta(
-            1, "LLP",
-            "Qual estrutura de controle é utilizada para repetir um bloco de código enquanto uma condição for verdadeira?",
-            arrayOf("se/senão (if/else)", "enquanto (while)", "escolha (switch/when)", "retorne (return)"),
-            1
-        ),
-        // ANO 1 - Processos de Desenvolvimento de Software e Metodologias Ágeis
-        Pergunta(
-            1, "PDSMA",
-            "No framework Scrum, qual cerimônia diária e rápida alinha as atividades da equipe?",
-            arrayOf("Sprint Review", "Sprint Planning", "Daily Scrum", "Sprint Retrospective"),
-            2
-        ),
-        // ANO 1 - Redes de Computadores e Segurança da Informação
-        Pergunta(
-            1, "RCSIN",
-            "Qual serviço de rede é responsável por converter nomes de domínio amigáveis (como www.exemplo.com) em endereços IP?",
-            arrayOf("DHCP", "DNS", "FTP", "SMTP"),
-            1
-        ),
-        // ANO 1 - Carreiras e Competências
-        Pergunta(
-            1, "Carreiras",
-            "Qual termo define as habilidades comportamentais e interpessoais de um profissional no mercado de trabalho?",
-            arrayOf("Hard Skills", "Technical Skills", "Soft Skills", "Backlog Skills"),
-            2
-        ),
-        // ANO 2 - Modelagem e Desenvolvimento de Banco de Dados
-        Pergunta(
-            2, "MBD",
-            "Qual comando da linguagem SQL é utilizado para extrair dados de uma tabela existente?",
-            arrayOf("INSERT INTO", "UPDATE", "DROP TABLE", "SELECT"),
-            3
-        ),
-        // ANO 2 - Programação Mobile
-        Pergunta(
-            2, "PM",
-            "No desenvolvimento nativo Android, qual função associa o arquivo de layout XML à sua Activity?",
-            arrayOf("findViewById()", "setContentView()", "startActivity()", "finish()"),
-            1
-        ),
-        // ANO 2 - Programação Frontend
-        Pergunta(
-            2, "Front-End",
-            "No desenvolvimento web, qual linguagem é responsável por definir a estrutura semântica dos elementos na página?",
-            arrayOf("CSS", "JavaScript", "HTML", "TypeScript"),
-            2
-        ),
-        // ANO 2 - Programação Backend
-        Pergunta(
-            2, "Back-End",
-            "Qual protocolo é o padrão da web para comunicação e troca de requisições/respostas entre cliente e servidor?",
-            arrayOf("HTTP/HTTPS", "SSH", "IMAP", "UDP"),
-            0
-        ),
-        // ANO 2 - Versionamento de Código e Sistemas de Mensageria
-        Pergunta(
-            2, "VCSM",
-            "No Git, qual comando grava as alterações adicionadas na área de preparação localmente no repositório?",
-            arrayOf("git push", "git commit", "git pull", "git status"),
-            1
-        ),
-        // ANO 2 - Inteligência Artificial
-        Pergunta(
-            2, "IA",
-            "Qual ramo da IA treina algoritmos para reconhecer padrões e tomar decisões a partir de conjuntos de dados?",
-            arrayOf("Engenharia Reversa", "Compilação JIT", "Machine Learning (Aprendizado de Máquina)", "Criptografia"),
-            2
-        ),
-        // ANO 2 - Projeto Multidisciplinar
-        Pergunta(
-            2, "PMD",
-            "Qual é o artefato central que reúne a documentação de requisitos, objetivos e regras de negócio de um projeto de software?",
-            arrayOf("Briefing / Escopo do Projeto", "Arquivo de Log", "Driver de Hardware", "Branch Master"),
-            0
-        )
+    // 1. Banco de perguntas completo
+    private val todasPerguntas = listOf(
+        // --- VCSM ---
+        Pergunta(2, "VCSM", "Trainee", "Qual é a principal função do GitHub?", arrayOf("Criar bancos de dados.", "Hospedar e versionar projetos de código.", "Fazer desenhos de interface.", "Programar aplicativos sem código."), 1),
+        Pergunta(2, "VCSM", "Júnior", "O que faz o comando git push?", arrayOf("Baixa o projeto.", "Envia as alterações para o GitHub.", "Apaga o repositório.", "Cria uma branch."), 1),
+        Pergunta(2, "VCSM", "Pleno", "O que é uma branch?", arrayOf("Uma cópia paralela do projeto.", "Um banco de dados.", "Um arquivo HTML.", "Um servidor."), 0),
+
+        // --- FRONT-END ---
+        Pergunta(2, "Front-End", "Trainee", "Qual linguagem estrutura uma página web?", arrayOf("CSS", "JavaScript", "HTML", "SQL"), 2),
+        Pergunta(2, "Front-End", "Júnior", "Qual é a função do CSS?", arrayOf("Criar banco de dados.", "Estilizar a página.", "Fazer login.", "Enviar dados ao servidor."), 1),
+        Pergunta(2, "Front-End", "Pleno", "O que significa uma página responsiva?", arrayOf("Funciona apenas no celular.", "Adapta-se a diferentes tamanhos de tela.", "Carrega mais rápido.", "Não usa CSS."), 1),
+
+        // --- BACK-END ---
+        Pergunta(2, "Back-End", "Trainee", "Qual é a função do back-end?", arrayOf("Criar a aparência da página.", "Processar dados e regras do sistema.", "Editar imagens.", "Criar planilhas."), 1),
+        Pergunta(2, "Back-End", "Júnior", "O que é uma API?", arrayOf("Um tipo de banco de dados.", "Uma ponte de comunicação entre sistemas.", "Um editor de código.", "Um navegador."), 1),
+        Pergunta(2, "Back-End", "Pleno", "O que é autenticação?", arrayOf("Alterar a cor do site.", "Verificar a identidade do usuário.", "Criar uma tabela.", "Fazer backup."), 1),
+
+        // --- MBD ---
+        Pergunta(2, "MBD", "Trainee", "O que é uma entidade?", arrayOf("Um computador.", "Um objeto representado no banco de dados.", "Uma senha.", "Um navegador."), 1),
+        Pergunta(2, "MBD", "Júnior", "O que é um relacionamento?", arrayOf("Ligação entre entidades.", "Nome da tabela.", "Tipo de arquivo.", "Um programa."), 0),
+        Pergunta(2, "MBD", "Pleno", "Para que serve um DER?", arrayOf("Programar em Java.", "Modelar entidades e relacionamentos do banco.", "Criar páginas HTML.", "Fazer testes."), 1)
     )
+
+    // Lista filtrada apenas com as perguntas da matéria clicada
+    private var perguntasDaMateria: List<Pergunta> = emptyList()
+    private var indiceAtual = 0
+
+    // Elementos da interface
+    private lateinit var txtMateria: TextView
+    private lateinit var txtEnunciado: TextView
+    private lateinit var botoesOpcoes: List<Button>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        val txtMateria = findViewById<TextView>(R.id.txtQuizMateria)
-        val txtEnunciado = findViewById<TextView>(R.id.txtEnunciado)
-        val btnOpcao0 = findViewById<Button>(R.id.btnOpcao0)
-        val btnOpcao1 = findViewById<Button>(R.id.btnOpcao1)
-        val btnOpcao2 = findViewById<Button>(R.id.btnOpcao2)
-        val btnOpcao3 = findViewById<Button>(R.id.btnOpcao3)
+        txtMateria = findViewById(R.id.txtQuizMateria)
+        txtEnunciado = findViewById(R.id.txtEnunciado)
+        botoesOpcoes = listOf(
+            findViewById(R.id.btnOpcao0),
+            findViewById(R.id.btnOpcao1),
+            findViewById(R.id.btnOpcao2),
+            findViewById(R.id.btnOpcao3)
+        )
 
-        // Recupera o que foi selecionado
-        val ano = intent.getIntExtra("EXTRA_ANO", 1)
-        val materia = intent.getStringExtra("EXTRA_MATERIA") ?: "LLP"
+        val materiaSelecionada = intent.getStringExtra("EXTRA_MATERIA") ?: "VCSM"
 
-        txtMateria.text = "Disciplina: $materia (Ano $ano)"
+        // Filtra só as perguntas da matéria escolhida
+        perguntasDaMateria = todasPerguntas.filter { it.materia == materiaSelecionada }
 
-        // Busca a pergunta que bate com a matéria escolhida
-        val perguntaAtual = listaPerguntas.find { it.materia == materia }
+        if (perguntasDaMateria.isNotEmpty()) {
+            carregarPergunta()
+        } else {
+            txtEnunciado.text = "Em breve: perguntas cadastradas pela turma!"
+            botoesOpcoes.forEach { it.isEnabled = false }
+        }
+    }
 
-        if (perguntaAtual != null) {
-            txtEnunciado.text = perguntaAtual.enunciado
-            btnOpcao0.text = perguntaAtual.opcoes[0]
-            btnOpcao1.text = perguntaAtual.opcoes[1]
-            btnOpcao2.text = perguntaAtual.opcoes[2]
-            btnOpcao3.text = perguntaAtual.opcoes[3]
+    private fun carregarPergunta() {
+        val pergunta = perguntasDaMateria[indiceAtual]
 
-            // Validação de resposta nos cliques
-            val botoes = listOf(btnOpcao0, btnOpcao1, btnOpcao2, btnOpcao3)
-            for (i in botoes.indices) {
-                botoes[i].setOnClickListener {
-                    if (i == perguntaAtual.respostaCerta) {
-                        Toast.makeText(this, "Acertou! Parabéns!", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Errou! Tente novamente.", Toast.LENGTH_SHORT).show()
-                    }
-                }
+        txtMateria.text = "${pergunta.materia} - Nível ${pergunta.dificuldade} (${indiceAtual + 1}/${perguntasDaMateria.size})"
+        txtEnunciado.text = pergunta.enunciado
+
+        for (i in botoesOpcoes.indices) {
+            botoesOpcoes[i].text = pergunta.opcoes[i]
+            botoesOpcoes[i].isEnabled = true
+            botoesOpcoes[i].setOnClickListener {
+                verificarResposta(i, pergunta.respostaCerta)
+            }
+        }
+    }
+
+    private fun verificarResposta(opcaoEscolhida: Int, respostaCerta: Int) {
+        if (opcaoEscolhida == respostaCerta) {
+            Toast.makeText(this, "Acertou! Boa!", Toast.LENGTH_SHORT).show()
+            indiceAtual++
+
+            if (indiceAtual < perguntasDaMateria.size) {
+                carregarPergunta() // Vai para a próxima (ex: Júnior ou Pleno)
+            } else {
+                Toast.makeText(this, "Parabéns! Você concluiu todas as questões dessa disciplina!", Toast.LENGTH_LONG).show()
+                finish() // Volta para a tela de matérias
             }
         } else {
-            txtEnunciado.text = "Ainda não há perguntas cadastradas para esta matéria."
-            btnOpcao0.isEnabled = false
-            btnOpcao1.isEnabled = false
-            btnOpcao2.isEnabled = false
-            btnOpcao3.isEnabled = false
+            Toast.makeText(this, "Resposta errada! Tente novamente.", Toast.LENGTH_SHORT).show()
         }
     }
 }
